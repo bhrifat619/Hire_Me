@@ -14,15 +14,12 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// static for uploaded CVs
 app.use('/uploads', express.static('uploads'));
 
-// health check
 app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
-// main routes
 app.use('/api', routes);
 
 app.use(notFound);

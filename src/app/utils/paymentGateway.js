@@ -13,5 +13,3 @@ const processPayment = async ({ amount, currency = "BDT", userID }) => {
 };
 
 module.exports = { processPayment };
-
-// all done mock payment test purpose.

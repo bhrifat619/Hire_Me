@@ -3,5 +3,3 @@ const catchAsync = fn => (req,res,next) =>{
 };
 
 module.exports = catchAsync;
-
-// all done

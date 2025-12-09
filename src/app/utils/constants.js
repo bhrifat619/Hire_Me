@@ -30,5 +30,3 @@ module.exports={
     PAYMENT_STATUS,
     ADMIN_MAIL
 };
-
-// all done

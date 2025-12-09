@@ -24,7 +24,7 @@ const getJobs = async filters => {
 
     return Job.find(query)
         .populate("postedBy", "name email company role")
-        .sort("-createdAt") // descending order new post will be in top.
+        .sort("-createdAt")
 };
 
 const getJobById = async jobId => {
@@ -45,42 +45,42 @@ const getJobById = async jobId => {
 const getMyJobs = async currentUser => {
     const jobs = await Job.find({ postedBy: currentUser.id }).sort('-createdAt');
     return jobs;
-    // return (await Job.find({postedBy:currentUser.id})).sort("-createdAt");
+
 };
 
-const updateJob = async (jobId , payload, currentUser) => {
-    // payload = req.body
+const updateJob = async (jobId, payload, currentUser) => {
+
     const job = await Job.findById(jobId);
-    if(!job){
+    if (!job) {
         const err = new Error("Job is not found")
         err.statusCode = httpStatus.NOT_FOUND;
         throw err;
     }
 
-    if(currentUser.role !== "admin" && job.postedBy.toString() !== currentUser.id) {
+    if (currentUser.role !== "admin" && job.postedBy.toString() !== currentUser.id) {
         const err = new Error("You can update only your own jobs");
         err.statusCode = httpStatus.FORBIDDEN;
         throw err;
     }
 
-    Object.assign(job,payload);
+    Object.assign(job, payload);
     await job.save();
     return job;
 }
 
 
-const deleteJob = async (jobId, currentUser) =>{
+const deleteJob = async (jobId, currentUser) => {
     const job = await Job.findById(jobId);
-    if(!job){
+    if (!job) {
         const err = new Error("Job not found");
         err.statusCode = httpStatus.NOT_FOUND;
         throw err;
     };
 
-    if(
-        currentUser.role !== "admin" && 
+    if (
+        currentUser.role !== "admin" &&
         job.postedBy.toString() !== currentUser.id
-    ){
+    ) {
         const err = new Error("You can delete only your own jobs");
         err.statusCode = httpStatus.FORBIDDEN;
         throw err;

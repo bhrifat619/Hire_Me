@@ -14,4 +14,3 @@ module.exports = {
     bcryptSaltRounds: Number(process.env.BCRYPT_SALT_ROUNDS) || 10,
     applicationFee: Number(process.env.APPLICATION_Fee) || 100
 };
-// all done

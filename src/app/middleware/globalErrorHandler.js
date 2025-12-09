@@ -14,7 +14,3 @@ const globalErrorHandler = (err, req, res, next) => {
 };
 
 module.exports = { globalErrorHandler};
-
-// catch async er error ta ekhane next er maddhome ese handle hoy
-// development mode → stack trace dekhay (error exactly kothae)
-// all done here

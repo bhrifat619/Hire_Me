@@ -42,5 +42,3 @@ const auth = (...requiredRoles) => catchAsyc(async (req, res, next) => {
 });
 
 module.exports = auth;
-
-// all done here

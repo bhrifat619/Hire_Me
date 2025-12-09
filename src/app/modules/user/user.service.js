@@ -14,11 +14,8 @@ const registerUser = async payload => {
         throw err;
     }
 
-    // for reqruitier and job_seeker
-    // const role = payload.role === ROLES.RECRUITER ? ROLES.RECRUITER : ROLES.JOB_SEEKER;
     let role = ROLES.JOB_SEEKER;
 
-    // this email is always admin
     if (payload.email === ADMIN_MAIL) {
         role = ROLES.ADMIN;
     } else if (payload.role === ROLES.RECRUITER) {
@@ -79,7 +76,6 @@ const loginUser = async ({ email, password }) => {
     return { user: userObj, accessToken, refreshToken }
 };
 
-// ---------- refresh token ----------
 const refreshAccessToken = async providedRefreshToken => {
     if (!providedRefreshToken) {
         const err = new Error('Refresh token is required');
@@ -92,7 +88,7 @@ const refreshAccessToken = async providedRefreshToken => {
         decoded = jwt.verify(
             providedRefreshToken,
             config.jwt.refreshSecret
-        ); // throws if invalid/expired
+        );
     } catch (e) {
         const err = new Error('Invalid or expired refresh token');
         err.statusCode = 401;
@@ -112,7 +108,6 @@ const refreshAccessToken = async providedRefreshToken => {
         throw err;
     }
 
-    // issue new pair (rotate refresh token)
     const accessToken = generateAccessToken({ id: user.id, role: user.role });
     const newRefreshToken = generateRefreshToken({ id: user.id, role: user.role });
 
@@ -126,7 +121,6 @@ const refreshAccessToken = async providedRefreshToken => {
     return { user: userObj, accessToken, refreshToken: newRefreshToken };
 };
 
-// ---------- logout ----------
 const logoutUser = async userId => {
     const user = await User.findById(userId).select('+refreshToken');
     if (!user) {
@@ -135,7 +129,7 @@ const logoutUser = async userId => {
         throw err;
     }
 
-    user.refreshToken = null; // or ''
+    user.refreshToken = null;
     await user.save();
 
     return;
@@ -215,5 +209,3 @@ module.exports = {
     deleteUser,
     logoutUser
 };
-
-// all done next usercontroller.

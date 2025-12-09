@@ -33,7 +33,6 @@ const applyForJob = async ({ jobId, resumePath, currentUser }) => {
         throw err;
     }
 
-    // mock payment
     const payment = await processPayment({
         amount: config.applicationFee,
         currency: "BDT",
@@ -125,7 +124,6 @@ const getAllApplications = async filters => {
         .sort('-createdAt');
 
     if (filters.company) {
-        // remove docs where job didn't match company filter
         return apps.filter(app => app.job);
     }
 

@@ -15,5 +15,3 @@ const generateRefreshToken = payload => {
 };
 
 module.exports = { generateAccessToken, generateRefreshToken };
-
-// all done

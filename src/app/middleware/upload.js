@@ -7,7 +7,6 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const uploadDir = path.join(process.cwd(), 'uploads', 'cv');
 
-        // create directory if not exists
         if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
         }
@@ -24,7 +23,7 @@ const fileFilter = (req, file, cb) => {
     const allowedMimTypes = [
         "application/pdf",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .docs eta
-        "application/msword" // .doc
+        "application/msword" 
     ];
 
     if (!allowedMimTypes.includes(file.mimetype)) {
@@ -39,11 +38,8 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({
     storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // means 54 mb
+    limits: { fileSize: 5 * 1024 * 1024 }, 
     fileFilter
 });
 
 module.exports = upload;
-
-// all done
-// cv locally save hobe server file e

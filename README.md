@@ -58,6 +58,11 @@ Built with **Node.js, Express, MongoDB (Mongoose), JWT, Multer**.
 The ERD is included in the repo under e.g.:
 [ERD](https://github.com/bhrifat619/Hire_Me/tree/main/ERD)
 
+## Git Clone
+```
+https://github.com/bhrifat619/Hire_Me.git
+```
+
 ## Postman
 **Recommended testing flows**
 Super Admin

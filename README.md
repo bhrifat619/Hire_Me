@@ -56,9 +56,8 @@ Built with **Node.js, Express, MongoDB (Mongoose), JWT, Multer**.
 ---
 ## ERD
 The ERD is included in the repo under e.g.:
-```
-docs/hireme-erd.png
-```
+[ERD](https://github.com/bhrifat619/Hire_Me/tree/main/ERD)
+
 ## Postman
 **Recommended testing flows**
 Super Admin
@@ -82,9 +81,8 @@ Admin:
   - `/api/applications to view applications`<br/>
 
 **A Postman collection file can be stored at:**
-```
-postman/HireMe.postman_collection.json
-```
+[Postman Documentation](https://github.com/bhrifat619/Hire_Me/tree/main/Postman_Documentation)
+
 ---
 ## Project Structure
 

@@ -19,7 +19,7 @@ Built with **Node.js, Express, MongoDB (Mongoose), JWT, Multer**.
   - `admin`
   - `recruiter` (employee)
   - `job_seeker`
-- **Fixed super admin email**: `bhuiyanrifat619@gmail.com`
+- **Fixed super admin email**: `admin@gmail.com`
   - First registered with this email is automatically `admin`
   - Only this super‑admin can create other admins
 - **Users**:

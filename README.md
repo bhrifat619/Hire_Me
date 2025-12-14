@@ -190,7 +190,7 @@ Defined in `src/app/utils/constants.js`:
 
 ### Fixed Super Admin
 
-- Email: **`bhuiyanrifat619@gmail.com`**
+- Email: **`admin@gmail.com`**
 - When this email is registered, the user is always set as `admin`.
 - On login, if this email is found and role is not `admin`, it is corrected to `admin`.
 - Only this super‑admin can call `POST /api/users/admin` to create other admins.
